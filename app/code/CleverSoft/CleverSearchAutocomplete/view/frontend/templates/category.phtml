@@ -39,7 +39,7 @@ function top_createTree($array, $currentParent, $currLevel = 0, $prevLevel = -1)
             echo '
 				<li class="top-tree__items" id="li_'.$categoryId.'">';
             
-			echo '<a class="top-tree__items--link" href="javascript:;" data-id="'.$categoryId.'">';
+			echo '<a href="javascript:;" data-id="'.$categoryId.'">';
                 echo '<span>'.$category['name'].'</span>';
             echo '</a>';
             if ($currLevel > $prevLevel) {
