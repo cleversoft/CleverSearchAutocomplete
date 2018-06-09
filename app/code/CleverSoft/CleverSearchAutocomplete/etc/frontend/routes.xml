@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="cleversoft_cleversearchautocomplete" frontName="cleversoft_cleversearchautocomplete">
+            <module name="CleverSoft_CleverSearchAutocomplete" />
+        </route>
+    </router>
+</config>

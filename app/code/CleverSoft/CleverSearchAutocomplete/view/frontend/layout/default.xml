@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="CleverSoft_CleverSearchAutocomplete::css/cleversearchautocomplete.css"/>
+    </head>
+    <body>
+        <referenceBlock name="top.search">
+        	<block name="category.tree" template="CleverSoft_CleverSearchAutocomplete::category.phtml" ifconfig="cleversoft_searchsuite/cleversearchautocomplete_main/search_category"/>
+            <block class="CleverSoft\CleverSearchAutocomplete\Block\Autocomplete" name="cleversoft-wrapper" template="CleverSoft_CleverSearchAutocomplete::autocomplete.phtml" />
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,82 @@
+<?php
+function top_get_categories() {
+	$objectManagerr = \Magento\Framework\App\ObjectManager::getInstance();
+	$category = $objectManagerr->create('Magento\Catalog\Model\Category');
+    $tree = $category->getTreeModel();
+    $tree->load();
+    $ids = $tree->getCollection()->addFieldToFilter('is_active', array('eq'=>'1'))->getAllIds();
+    $arr = array();
+    $arrayCategories = array();
+    if ($ids) {
+        foreach ($ids as $id) {
+            $cat = $objectManagerr->create('Magento\Catalog\Model\Category');
+            $cat->load($id);
+ 
+                $arrayCategories[$id] =
+                        array("parent_id" => $cat->getParentId(),
+                            "name" => $cat->getName(),
+                            "cat_id" => $cat->getId(),
+                            "cat_level" => $cat->getLevel(),
+                            "cat_url" => $cat->getUrl()
+                );
+        }
+        return $arrayCategories;
+    }
+}
+$arrayCategories = top_get_categories();
+	
+function top_createTree($array, $currentParent, $currLevel = 0, $prevLevel = -1) {
+	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$catalogSession = $objectManager->create('Magento\Catalog\Model\Session');
+	$selected_arr = explode(",", $catalogSession->getTopCatIds());
+    foreach ($array as $categoryId => $category) {
+        if ($currentParent == $category['parent_id']) {
+            if ($currLevel > $prevLevel)
+                echo "<ul>";
+            if ($currLevel == $prevLevel)
+                echo " </li> ";
+			
+            echo '
+				<li id="li_'.$categoryId.'">';
+            
+			echo '<a href="javascript:;" data-id="'.$categoryId.'">';
+                echo '<span>'.$category['name'].'</span>';
+            echo '</a>';
+            if ($currLevel > $prevLevel) {
+                $prevLevel = $currLevel;
+            }
+            $currLevel++;
+            top_createTree($array, $categoryId, $currLevel, $prevLevel);
+            $currLevel--;
+        }
+    }
+    if ($currLevel == $prevLevel)
+        echo " </li></ul> ";
+}
+?>
+
+<div class="inner">
+    <a href="javascript:;" class="current-cat" data-role="trigger">
+        <span>All Categories</span>
+    </a>
+</div>
+<div id="top_sidetree" style="display: none">
+	<div id="top_tree">
+		<ul><li><a href="javascript:;" data-id="">All Categories</a></li></ul>
+		<?php top_createTree($arrayCategories, 2); ?>
+	</div>
+</div>
+
+<script type="text/javascript">
+	require(['jquery'], function($){ 
+		$('.current-cat').click(function() {
+			$('#top_sidetree').fadeToggle();
+		});	
+    	$('#top_tree a').click(function() {
+    		var text = $(this).html();
+    		var value = $(this).attr('data-id');
+		  	$('.current-cat span').html(text);
+		  	$('input[name="cat"]').val(value);
+		});
+ 	});
+</script>
