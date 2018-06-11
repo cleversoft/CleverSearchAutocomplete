@@ -34,6 +34,11 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     const XML_PATH_SEARCH_CATEGORY      = 'cleversoft_searchsuite/cleversearchautocomplete_main/search_category';
 
     /**
+     * XML config path search by multiple category
+     */
+    const XML_PATH_SEARCH_MULTIPLE_CATEGORY      = 'cleversoft_searchsuite/cleversearchautocomplete_main/search_multiple_category';
+
+    /**
      * XML config path product results number
      */
     const XML_PATH_PRODUCT_RESULT_NUMBER      = 'cleversoft_searchsuite/cleversearchautocomplete_main/product_result_number';
@@ -109,6 +114,21 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     {
         return (int)$this->scopeConfig->getValue(
             self::XML_PATH_SEARCH_CATEGORY,
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
+    }
+
+    /**
+     * Retrieve search by multiple levels category
+     *
+     * @param int|null $storeId
+     * @return int
+     */
+    public function getSearchMultipleCategories($storeId = null)
+    {
+        return (int)$this->scopeConfig->getValue(
+            self::XML_PATH_SEARCH_MULTIPLE_CATEGORY,
             ScopeInterface::SCOPE_STORE,
             $storeId
         );

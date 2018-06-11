@@ -28,28 +28,57 @@ $arrayCategories = top_get_categories();
 function top_createTree($array, $currentParent, $currLevel = 0, $prevLevel = -1) {
 	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 	$catalogSession = $objectManager->create('Magento\Catalog\Model\Session');
-	$selected_arr = explode(",", $catalogSession->getTopCatIds());
-    foreach ($array as $categoryId => $category) {
-        if ($currentParent == $category['parent_id']) {
-            if ($currLevel > $prevLevel)
+    $selected_arr = explode(",", $catalogSession->getTopCatIds());
+    $helper = $objectManager->create('CleverSoft\CleverSearchAutocomplete\Helper\Data');
+    $searchMultipleCategories = $helper->getSearchMultipleCategories();
+    if ($searchMultipleCategories) {
+        foreach ($array as $categoryId => $category) {
+            if ($currentParent == $category['parent_id']) {
+                if ($currLevel > $prevLevel)
                 echo '<ul class="top-tree__list">';
-            if ($currLevel == $prevLevel)
-                echo " </li> ";
-			
-            echo '
-				<li class="top-tree__items" id="li_'.$categoryId.'">';
-            
-			echo '<a href="javascript:;" data-id="'.$categoryId.'">';
-                echo '<span>'.$category['name'].'</span>';
-            echo '</a>';
-            if ($currLevel > $prevLevel) {
-                $prevLevel = $currLevel;
+                if ($currLevel == $prevLevel)
+                    echo " </li> ";
+                
+                echo '
+                    <li class="top-tree__items" id="li_'.$categoryId.'">';
+                
+                echo '<a href="javascript:;" data-id="'.$categoryId.'">';
+                    echo '<span>'.$category['name'].'</span>';
+                echo '</a>';
+                if ($currLevel > $prevLevel) {
+                    $prevLevel = $currLevel;
+                }
+                $currLevel++;
+                top_createTree($array, $categoryId, $currLevel, $prevLevel);
+                $currLevel--;
             }
-            $currLevel++;
-            top_createTree($array, $categoryId, $currLevel, $prevLevel);
-            $currLevel--;
+        }
+    } else {
+        foreach ($array as $categoryId => $category) {
+            if ($currentParent == $category['parent_id']) {
+                if($currLevel == 0) {
+                    if ($currLevel > $prevLevel)
+                    echo '<ul class="top-tree__list">';
+                    if ($currLevel == $prevLevel)
+                        echo " </li> ";
+                    
+                    echo '
+                        <li class="top-tree__items" id="li_'.$categoryId.'">';
+                    
+                    echo '<a href="javascript:;" data-id="'.$categoryId.'">';
+                        echo '<span>'.$category['name'].'</span>';
+                    echo '</a>';
+                    if ($currLevel > $prevLevel) {
+                        $prevLevel = $currLevel;
+                    }
+                    $currLevel++;
+                    top_createTree($array, $categoryId, $currLevel, $prevLevel);
+                    $currLevel--;
+                }
+            }
         }
     }
+    
     if ($currLevel == $prevLevel)
         echo " </li></ul> ";
 }
@@ -71,12 +100,19 @@ function top_createTree($array, $currentParent, $currLevel = 0, $prevLevel = -1)
 	require(['jquery'], function($){ 
 		$('.current-cat').click(function() {
 			$('#top_sidetree').fadeToggle();
-		});	
+		});
+        $(document).mouseup(function (e) {
+            if (!$('#top_sidetree').is(e.target) && $('#top_sidetree').has(e.target).length === 0)
+            {
+                $('#top_sidetree').fadeOut();
+            }
+        });	
     	$('#top_tree a').click(function() {
     		var text = $(this).html();
     		var value = $(this).attr('data-id');
 		  	$('.current-cat span').html(text);
 		  	$('input[name="cat"]').val(value);
+            $('#top_sidetree').fadeOut();
 		});
  	});
 </script>

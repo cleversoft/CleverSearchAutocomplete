@@ -25,15 +25,22 @@
                     <label><![CDATA[Search By Category]]></label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="suggested_result_number" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="search_multiple_category" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Search By Multiple Levels Category ]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="search_category">1</field>
+                    </depends>
+                </field>
+                <field id="suggested_result_number" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label><![CDATA[Number of Results Suggested Search]]></label>
                     <validate>validate-zero-or-greater integer</validate>
                 </field>
-                <field id="product_result_number" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="product_result_number" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label><![CDATA[Number of Results Product Search]]></label>
                     <validate>validate-zero-or-greater integer</validate>
                 </field>
-                <field id="product_result_fields" translate="label" type="multiselect" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="product_result_fields" translate="label" type="multiselect" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label><![CDATA[Product Search Result Fields]]></label>
                     <source_model>CleverSoft\CleverSearchAutocomplete\Model\Source\ProductFields</source_model>
                 </field>
