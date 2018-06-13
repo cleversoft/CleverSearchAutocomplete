@@ -86,8 +86,9 @@ function top_createTree($array, $currentParent, $currLevel = 0, $prevLevel = -1)
 
 <div class="inner">
     <a href="javascript:;" class="current-cat" data-role="trigger">
-        <span>All Categories<i class="fal fa-angle-down"></i></span>
+        <span>All Categories</span>
     </a>
+    <span class="fal fa-angle-down"></span>
 </div>
 <div id="top_sidetree" style="display: none">
 	<div id="top_tree" class="top-tree">
@@ -106,7 +107,7 @@ function top_createTree($array, $currentParent, $currLevel = 0, $prevLevel = -1)
             {
                 $('#top_sidetree').fadeOut();
             }
-        });	
+        });
     	$('#top_tree a').click(function() {
     		var text = $(this).html();
     		var value = $(this).attr('data-id');
@@ -114,5 +115,17 @@ function top_createTree($array, $currentParent, $currLevel = 0, $prevLevel = -1)
 		  	$('input[name="cat"]').val(value);
             $('#top_sidetree').fadeOut();
 		});
+		$(document).ready(function(){
+			$('.form-group').append('<a href="javascript:;" class="btn-close" style="display: none;"><i class="fa fa-times-circle-o"></i></a>');
+		});
+		$(document).keypress(function(){
+			$('.btn-close').click(function(){
+				$('.input-text').val('');
+				$('.btn-close').hide();
+				if($('.input-text').val('')){
+					$('.searchsuite-autocomplete').fadeOut();
+				}
+			});
+ 		});
  	});
 </script>

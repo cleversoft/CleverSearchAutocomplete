@@ -1,5 +1,5 @@
 /**
- * Copyright © 2016 MageWorx. All rights reserved.
+ * Copyright © 2018 MageWorx. All rights reserved.
  * See LICENSE.txt for license details.
  */
 
@@ -93,11 +93,13 @@ define([
         spinnerShow: function () {
             var spinner = $(this.searchFormSelector);
             spinner.addClass('loading');
+            $('.btn-close').hide();
         },
 
         spinnerHide: function () {
             var spinner = $(this.searchFormSelector);
             spinner.removeClass('loading');
+            $('.btn-close').show();
         }
 
     });

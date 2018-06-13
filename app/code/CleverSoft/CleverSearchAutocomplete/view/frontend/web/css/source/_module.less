@@ -2,38 +2,18 @@
 * Copyright © 2016 MageWorx. All rights reserved.
 * See LICENSE.txt for license details.
 */
+@keyframes loading-lazy {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
 & when (@media-common = true) {
-	form.minisearch.loading .control input[type="text"] {
-	    box-shadow: none;
-	    -webkit-animation-name: search-loading; /* Chrome, Safari, Opera */
-	    -webkit-animation-duration: 3s; /* Chrome, Safari, Opera */
-	    -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
-	    animation-name: search-loading;
-	    animation-duration: 3s;
-	    animation-iteration-count: infinite;
-	}
-
-	/* Chrome, Safari, Opera */
-	@-webkit-keyframes search-loading {
-	    0%   {box-shadow: none;}
-	    25%   {box-shadow: 0 0 3px 1px #68a8e0;}
-	    50%   {box-shadow: 0 0 3px 1px @color-white;}
-	    75%   {box-shadow: 0 0 3px 1px #68a8e0;}
-	    100%   {box-shadow: none;}
-	}
-
-	/* Standard syntax */
-	@keyframes search-loading {
-	    0%   {box-shadow: none;}
-	    25%   {box-shadow: 0 0 3px 1px #68a8e0;}
-	    50%   {box-shadow: 0 0 3px 1px @color-white;}
-	    75%   {box-shadow: 0 0 3px 1px #68a8e0;}
-	    100%   {box-shadow: none;}
-	}
-
 	.searchsuite-autocomplete {
 	    background-color: @color-white;
-	    border: 1px solid #c2c2c2;
+	    border: 1px solid @color-gray76;
 	    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
 	    left: 0;
 	    margin-top: 50px;
@@ -59,8 +39,8 @@
 	.searchsuite-autocomplete .title {
 	    padding: 10px;
 	    margin-bottom: 5px;
-	    background: #f0f0f0;
-	    color: #575757;
+	    background: @color-gray94;
+	    color: @color-gray34;
 	    font-weight: bold;
 	}
 
@@ -73,8 +53,8 @@
 
 	.searchsuite-autocomplete .no-result {
 	    padding: 10px;
-	    background: #f0f0f0;
-	    color: #575757;
+	    background: @color-gray94;
+	    color: @color-gray34;
 	    text-align: center;
 	}
 
@@ -85,7 +65,7 @@
 	}
 
 	.searchsuite-autocomplete ul li {
-	    color: #000;
+	    color: @primary__color__dark;
 	    cursor: unset;
 	    padding: 0;
 	}
@@ -139,7 +119,7 @@
 	}
 
 	.searchsuite-autocomplete ul li.action .action.close:before {
-	    color: #8f8f8f;
+	    color: @color-gray56;
 	    content: '\e616';
 	    display: inline-block;
 	    font-family: 'luma-icons';
@@ -177,7 +157,7 @@
 	}
 
 	.searchsuite-autocomplete ul li .qs-option-info {
-	    color: #000;
+	    color: @primary__color__dark;
 	    display: inline-block;
 	    float: left;
 	    padding-left: 5%;
@@ -233,7 +213,7 @@
 	    font-weight: bold;
 	    margin-top: 15px;
 	    .price-box .old-price .price {
-	    	color: #c2c2c2;
+	    	color: @color-gray76;
 	    }
 	}
 
@@ -242,23 +222,68 @@
 	    float: right;
 	    margin-top: 10px;
 	}
-	.form {
-		&.minisearch {
-			.inner {
-		        display: inline-table;
-				margin-right: 60px;
-    			.current-cat {
-    				span {
-    					font-size: 14px;
-						font-weight: 600;
-						line-height: 2.86;
-						color: #252525;
-						i {
-						    font: normal normal normal 18px/1 FontAwesome;
-    						padding-left: 5px;
+	.block {
+		&-content {
+			.form {
+				&.minisearch {
+					.field.search {
+					    border-radius: 50px;
+				        border: 1px solid @color-gray92;
+				        .form-group {
+					    	.input-text {
+					    		font-size: 16px;
+					    	}
+					    }
+					}
+					.inner {
+						margin-right: 30px;
+					    border-left: 1px solid @color-gray92;
+					    border-right: 1px solid @color-gray92;
+					    overflow: hidden;
+					    line-height: 0;
+					    padding: 0 10px;
+				        white-space: nowrap;
+    					width: calc(~"50% - 30px");
+					    display: flex;
+					    flex-direction: row;
+					    > span {
+							    font: normal normal normal 18px/1 FontAwesome;
+		    					font-size: 16px;
+								line-height: 50px;
+								color: #252525;
+								padding-left: 5px;
+								position: absolute;
+								right: 60px;
+		    				}
+		    			.current-cat {
+		    				display: inline-flex;
+		    				span {
+		    					font-size: 14px;
+								font-weight: 600;
+								line-height: 50px;
+								color: #252525;
+								width: 100%;
+								span {
+								    overflow: hidden;
+								    text-overflow: ellipsis;
+								    white-space: nowrap;
+								    position: relative;
+								    padding-right: 15px;
+								    float: left;
+								    // width: calc(~"100% - 50px");
+								}
+		    				}
+		    			}
+					}
+					.action.search {
+					    padding: 0 13px;
+					    background: none;
+						&:before {
+							color: #252525;
+						    font-size: 16px;
 						}
-    				}
-    			}
+					}
+				}
 			}
 		}
 	}
@@ -277,12 +302,13 @@
 	    	li {
 	    		a {
 	    			transition: all 0.3s ease-in-out;
+	    			position: relative;
 	    	    	&:before {
 		    		    position: absolute;
 					    content: "";
 					    width: 0;
 					    height: 1px;
-					    background: #333;
+					    background: @color-gray20;
 					    left: -15px;
 					    top: 10px;
 					    opacity: 0;
@@ -302,6 +328,7 @@
 	    &__parent {
 	    	padding: 0 30px 0 15px;
     	    margin: 0;
+    	    list-style-type: none;
 	    	li {
     		    line-height: 30px;
     			margin: 0;
@@ -312,12 +339,58 @@
 	    	}
 	    }
 	    &__list {
-	    	padding: 10px 30px 3px 15px;
+	    	padding: 0 30px 0 15px;
+	    	list-style-type: none;
 	    }
 	    &__items {
-    	    line-height: 25px;
+    	    line-height: 20px;
 	    }
     } 	    
+}
+& when (@media-common = true),
+    (@media-target = 'all') {
+    @media only screen and (max-width: 991px) {
+        .media-width('max', 991px);
+	    .block {
+
+			&-content {
+				.form {
+					&.minisearch {
+						&.loading {
+							&:after {
+								position: absolute;
+								top: 9px;
+								right: 113px;
+								content: "";
+								display: block;
+								width: 30px;
+								height: 30px;
+								margin: 1px;
+								border-radius: 50%;
+								border: 3px solid @color-white;
+								border-color: @color-white transparent @color-white transparent;
+								animation: loading-lazy 1.2s linear infinite;
+							}
+						}
+						.field.search {
+						    .form-group {
+						    	.input-text {
+						    		font-size: 16px;
+						    	}
+						    	.btn-close {
+					    		    position: absolute;
+								    top: 0;
+								    right: 100px;
+								    color: @color-white;
+								    font-size: 22px;
+						    	}
+						    }
+						}
+					}
+				}
+			}
+		}
+    }
 }
 & when (@media-common = true),
     (@media-target = 'all') {
@@ -325,10 +398,72 @@
         .media-width('max', @screen__m);
         .searchsuite-autocomplete {
 	        border-top: 0;
-	        left: 15px;
+	        top: 100%;
+	        left: 0;
 	        margin-top: 0;
 	        right: 15px;
 	        width: auto;
 	    }
+	    .block {
+			&-content {
+				.form {
+					&.minisearch {
+						&.loading {
+							&:after {
+								right: 83px;
+							}
+						}
+						.field.search {
+						    .form-group {
+						    	.input-text {
+						    		font-size: 16px;
+						    	}
+						    	.btn-close {
+								    right: 70px;
+						    	}
+						    }
+						}
+					}
+				}
+			}
+		}
     }
+}
+& when (@media-common = true),
+    (@media-target = 'all') {
+    @media only screen and (max-width: (@screen__l - 1)) {
+        .media-width('max', @screen__l);
+	    .block {
+			&-content {
+				.form {
+					&.minisearch {
+						.inner {
+					        display: none;
+						}
+					}
+				}
+			}
+		}
+    }
+}
+& when (@media-common = true),
+    (@media-target = 'all') {
+    @media only screen and (min-width: @screen__l) {
+		.media-width('min', @screen__l);
+	    .block {
+			&-content {
+				.form {
+					&.minisearch {
+						.field.search {
+						    .form-group {
+						    	.btn-close {
+								    display: none !important;
+						    	}
+						    }
+						}
+					}
+				}
+			}
+		}
+	}
 }
