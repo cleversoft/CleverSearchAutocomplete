@@ -2,19 +2,15 @@
 * Copyright © 2016 MageWorx. All rights reserved.
 * See LICENSE.txt for license details.
 */
-@keyframes loading-lazy {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
+@keyframes spinner {
+  to {transform: rotate(360deg);}
 }
 & when (@media-common = true) {
 	.searchsuite-autocomplete {
 	    background-color: @color-white;
 	    border: 1px solid @color-gray76;
-	    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+	    -webkit-box-shadow: 0 0 3px rgba(0,0,0,.15);
+    	box-shadow: 0 0 3px rgba(0,0,0,.15);
 	    left: 0;
 	    margin-top: 50px;
 	    width: 350px;
@@ -226,6 +222,22 @@
 		&-content {
 			.form {
 				&.minisearch {
+					&.loading {
+						&:before {
+							content: '';
+							box-sizing: border-box;
+							position: absolute;
+						    top: 50%;
+							width: 20px;
+							height: 20px;
+							margin-top: -10px;
+							margin-left: -10px;
+							border-radius: 50%;
+							border: 2px solid @color-gray80;
+							border-top-color: @color-gray20;
+							animation: spinner .6s linear infinite;
+						}
+					}
 					.field.search {
 					    border-radius: 50px;
 				        border: 1px solid @color-gray92;
@@ -236,16 +248,18 @@
 					    }
 					}
 					.inner {
-						margin-right: 30px;
+						margin-right: 50px;
 					    border-left: 1px solid @color-gray92;
 					    border-right: 1px solid @color-gray92;
 					    overflow: hidden;
 					    line-height: 0;
 					    padding: 0 10px;
 				        white-space: nowrap;
-    					width: calc(~"50% - 30px");
 					    display: flex;
 					    flex-direction: row;
+				        position: absolute;
+					    right: 0;
+					    width: 150px;
 					    > span {
 							    font: normal normal normal 18px/1 FontAwesome;
 		    					font-size: 16px;
@@ -253,10 +267,11 @@
 								color: #252525;
 								padding-left: 5px;
 								position: absolute;
-								right: 60px;
+								right: 10px;
 		    				}
 		    			.current-cat {
 		    				display: inline-flex;
+		    				    width: calc(~"100% - 15px");
 		    				span {
 		    					font-size: 14px;
 								font-weight: 600;
@@ -268,14 +283,16 @@
 								    text-overflow: ellipsis;
 								    white-space: nowrap;
 								    position: relative;
-								    padding-right: 15px;
 								    float: left;
-								    // width: calc(~"100% - 50px");
 								}
 		    				}
 		    			}
 					}
 					.action.search {
+				        position: absolute;
+					    top: 0;
+					    right: 0;
+					    width: 50px;
 					    padding: 0 13px;
 					    background: none;
 						&:before {
@@ -357,19 +374,8 @@
 				.form {
 					&.minisearch {
 						&.loading {
-							&:after {
-								position: absolute;
-								top: 9px;
-								right: 113px;
-								content: "";
-								display: block;
-								width: 30px;
-								height: 30px;
-								margin: 1px;
-								border-radius: 50%;
-								border: 3px solid @color-white;
-								border-color: @color-white transparent @color-white transparent;
-								animation: loading-lazy 1.2s linear infinite;
+							&:before {
+    							right: 119px;
 							}
 						}
 						.field.search {
@@ -409,7 +415,7 @@
 				.form {
 					&.minisearch {
 						&.loading {
-							&:after {
+							&:before {
 								right: 83px;
 							}
 						}
@@ -419,7 +425,7 @@
 						    		font-size: 16px;
 						    	}
 						    	.btn-close {
-								    right: 70px;
+								    right: 64px;
 						    	}
 						    }
 						}
@@ -454,6 +460,11 @@
 			&-content {
 				.form {
 					&.minisearch {
+						&.loading {
+							&:before {
+    							right: 205px;
+							}
+						}
 						.field.search {
 						    .form-group {
 						    	.btn-close {
