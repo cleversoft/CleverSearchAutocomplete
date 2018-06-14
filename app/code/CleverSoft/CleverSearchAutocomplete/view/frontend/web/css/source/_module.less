@@ -235,20 +235,28 @@
 							border-radius: 50%;
 							border: 2px solid @color-gray80;
 							border-top-color: @color-gray20;
-							animation: spinner .6s linear infinite;
+							animation: spinner .3s linear infinite;
 						}
 					}
 					.field.search {
-					    border-radius: 50px;
+					    border-radius: 5px;
 				        border: 1px solid @color-gray92;
+				        line-height: 50px;
 				        .form-group {
 					    	.input-text {
-					    		font-size: 16px;
+					    		font-size: 14px;
+				    		    border: none !important;
+							    background: none !important;
+							    box-shadow: none !important;
 					    	}
 					    }
 					}
 					.inner {
-						margin-right: 50px;
+				        position: absolute;
+				        top: 0;
+					    right: 0;
+					    width: 150px;
+						margin-right: 40px;
 					    border-left: 1px solid @color-gray92;
 					    border-right: 1px solid @color-gray92;
 					    overflow: hidden;
@@ -257,9 +265,6 @@
 				        white-space: nowrap;
 					    display: flex;
 					    flex-direction: row;
-				        position: absolute;
-					    right: 0;
-					    width: 150px;
 					    > span {
 							    font: normal normal normal 18px/1 FontAwesome;
 		    					font-size: 16px;
@@ -271,7 +276,7 @@
 		    				}
 		    			.current-cat {
 		    				display: inline-flex;
-		    				    width: calc(~"100% - 15px");
+	    				    width: calc(~"100% - 15px");
 		    				span {
 		    					font-size: 14px;
 								font-weight: 600;
@@ -294,10 +299,14 @@
 					    right: 0;
 					    width: 50px;
 					    padding: 0 13px;
-					    background: none;
+					    background: #519600;
+					    border-radius: 0;
+				        border-top-right-radius: 5px;
+    					border-bottom-right-radius: 5px;
 						&:before {
-							color: #252525;
+							color: @color-white;
 						    font-size: 16px;
+					        line-height: 50px;
 						}
 					}
 				}
@@ -309,6 +318,7 @@
 	    top: 50px;
 	    right: 0;
 	    background: @color-white;
+	    min-width: 250px;
     }
     .top-tree {
 	    max-height: 500px;
@@ -369,7 +379,6 @@
     @media only screen and (max-width: 991px) {
         .media-width('max', 991px);
 	    .block {
-
 			&-content {
 				.form {
 					&.minisearch {
@@ -411,6 +420,7 @@
 	        width: auto;
 	    }
 	    .block {
+
 			&-content {
 				.form {
 					&.minisearch {
@@ -457,18 +467,25 @@
     @media only screen and (min-width: @screen__l) {
 		.media-width('min', @screen__l);
 	    .block {
+	    	&-search {
+				width: 550px !important;
+			}
 			&-content {
 				.form {
 					&.minisearch {
 						&.loading {
 							&:before {
-    							right: 205px;
+    							right: 200px;
 							}
 						}
 						.field.search {
 						    .form-group {
 						    	.btn-close {
-								    display: none !important;
+							        position: absolute;
+								    top: 0;
+								    right: 200px;
+								    font-size: 18px;
+								    color: #959595;
 						    	}
 						    }
 						}
