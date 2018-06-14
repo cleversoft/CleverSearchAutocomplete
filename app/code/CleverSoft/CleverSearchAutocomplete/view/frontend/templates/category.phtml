@@ -86,13 +86,13 @@ function top_createTree($array, $currentParent, $currLevel = 0, $prevLevel = -1)
 
 <div class="inner">
     <a href="javascript:;" class="current-cat" data-role="trigger">
-        <span>All Categories</span>
+        <span><?php echo __('All Categories');?></span>
     </a>
-    <span class="fal fa-angle-down"></span>
+    <i class="cs-font clever-icon-down"></i>
 </div>
 <div id="top_sidetree" style="display: none">
 	<div id="top_tree" class="top-tree">
-		<ul class="top-tree__parent"><li><a href="javascript:;" data-id="">All Categories</a></li></ul>
+		<ul class="top-tree__parent"><li><a href="javascript:;" data-id=""><?php echo __('All Categories');?></a></li></ul>
 		<?php top_createTree($arrayCategories, 2); ?>
 	</div>
 </div>
