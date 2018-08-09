@@ -87,8 +87,8 @@ function top_createTree($array, $currentParent, $currLevel = 0, $prevLevel = -1)
 <div class="inner">
     <a href="javascript:;" class="current-cat" data-role="trigger">
         <span><?php echo __('All Categories');?></span>
+        <i class="cs-font clever-icon-down"></i>
     </a>
-    <i class="cs-font clever-icon-down"></i>
 </div>
 <div id="top_sidetree" style="display: none">
 	<div id="top_tree" class="top-tree">
@@ -100,13 +100,19 @@ function top_createTree($array, $currentParent, $currLevel = 0, $prevLevel = -1)
 <script type="text/javascript">
 	require(['jquery'], function($){ 
 		$('.current-cat').click(function() {
-			$('#top_sidetree').fadeToggle();
+		    if($(this).hasClass('active')){
+                $('#top_sidetree').fadeOut();
+            }else {
+                $('#top_sidetree').fadeToggle();
+            }
+            $(this).toggleClass( "active" );
 		});
         $(document).mouseup(function (e) {
             if (!$('#top_sidetree').is(e.target) && $('#top_sidetree').has(e.target).length === 0)
             {
-                $('#top_sidetree').fadeOut();
+               // $('#top_sidetree').fadeOut();
             }
+
         });
     	$('#top_tree a').click(function() {
     		var text = $(this).html();

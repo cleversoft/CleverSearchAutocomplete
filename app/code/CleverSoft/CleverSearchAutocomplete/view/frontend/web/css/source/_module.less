@@ -16,6 +16,8 @@
 		width: 350px;
 		position: absolute;
 		z-index: 9999999;
+		overflow: auto;
+		max-height: 400px;
 	}
 	.searchsuite-autocomplete .suggest,
 	.searchsuite-autocomplete .product {
@@ -64,6 +66,10 @@
 		color: @primary__color__dark;
 		cursor: unset;
 		padding: 0;
+	}
+
+	.searchsuite-autocomplete ul li a, #top_tree a{
+		color: @primary__color__dark;
 	}
 
 	.searchsuite-autocomplete .suggest ul li {
@@ -225,8 +231,8 @@
 					border-radius: 5px;
 					border: 1px solid @color-gray92;
 					position: relative;
-					height: 41px;
-					line-height: 40px;
+					height: 32px;
+					line-height: 32px;
 					label.label.active {
 						& ~ .actions .action.search:before {
 							color:  @color-black;
@@ -279,14 +285,23 @@
 						right: 0;
 						width: 150px;
 						margin-right: 40px;
-						background: @color-gray92;
+						border-right: 1px solid @color-gray92;
+						border-left: 1px solid @color-gray92;
 						overflow: hidden;
 						padding: 0 10px;
 						text-align: center;
-						.current-cat {
+						.current-cat{
 							i{
 								padding-left: 5px;
 								font-size: 10px;
+								display: inline-block;
+								-webkit-transition: all 0.5s;
+								transition: all 0.5s;
+							}
+							&.active{
+								i:before{
+									content: "\c009";
+								}
 							}
 						}
 					}
@@ -296,7 +311,7 @@
 						right: 0;
 						width: 50px;
 						padding: 0 13px;
-						height: 40px;
+						height: 30px;
 						background: @color-black;
 						border-radius: 0;
 						border-top-right-radius: 5px;
@@ -304,7 +319,7 @@
 						&:before {
 							color: @color-white;
 							font-size: 16px;
-							line-height: 40px;
+							line-height: 30px;
 						}
 					}
 				}
@@ -413,7 +428,6 @@
 			border-top: 0;
 			top: 100%;
 			left: 0;
-			margin-top: 0;
 			right: 15px;
 			width: auto;
 		}

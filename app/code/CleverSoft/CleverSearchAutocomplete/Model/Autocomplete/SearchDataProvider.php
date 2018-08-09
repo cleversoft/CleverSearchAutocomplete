@@ -19,8 +19,6 @@ use Magento\Framework\App\Request\Http;
 
 class SearchDataProvider implements DataProviderInterface
 {
-    const PRODUCTS_NUMBER_IN_SUGGEST = 5;
-
     /** @var QueryFactory */
     protected $queryFactory;
 
@@ -130,7 +128,7 @@ class SearchDataProvider implements DataProviderInterface
             $searchCriteria = $this->searchCriteriaBuilder->addFilter('entity_id', $productIds, 'in')->create();
             $products       = $this->productRepository->getList($searchCriteria);
             $items = $products->getItems();
-            krsort($items);
+
             $cat = $this->request->getParam('cat');
 
             foreach ( $items as $product )
@@ -168,7 +166,7 @@ class SearchDataProvider implements DataProviderInterface
         $searchCriteria = $this->searchCriteriaBuilder->addFilter('entity_id', $productIds, 'in')->create();
         $products       = $this->productRepository->getList($searchCriteria);
         $items = $products->getItems();
-        krsort($items);
+
         return $items;
     }
 
@@ -200,9 +198,7 @@ class SearchDataProvider implements DataProviderInterface
             $productIds[] = $searchDocument->getId();
         }
 
-        rsort($productIds);
-
-        return array_slice($productIds, 0, self::PRODUCTS_NUMBER_IN_SUGGEST);
+        return $productIds;
     }
 
     protected function getAddToCartData($product) {
