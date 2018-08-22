@@ -4,7 +4,7 @@
  * See LICENSE.txt for license details.
  */
 
-namespace CleverSoft\CleverSearchAutocomplete\Helper;
+namespace CleverSoft\CleverSearchAutoComplete\Helper;
 
 use Magento\Store\Model\ScopeInterface;
 

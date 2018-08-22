@@ -29,7 +29,7 @@ function top_createTree($array, $currentParent, $currLevel = 0, $prevLevel = -1)
 	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 	$catalogSession = $objectManager->create('Magento\Catalog\Model\Session');
     $selected_arr = explode(",", $catalogSession->getTopCatIds());
-    $helper = $objectManager->create('CleverSoft\CleverSearchAutocomplete\Helper\Data');
+    $helper = $objectManager->create('CleverSoft\CleverSearchAutoComplete\Helper\Data');
     $searchMultipleCategories = $helper->getSearchMultipleCategories();
     if ($searchMultipleCategories) {
         foreach ($array as $categoryId => $category) {

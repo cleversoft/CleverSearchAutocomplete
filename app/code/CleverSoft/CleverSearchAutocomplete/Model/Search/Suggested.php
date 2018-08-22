@@ -1,19 +1,19 @@
 <?php
 
-namespace CleverSoft\CleverSearchAutocomplete\Model\Search;
+namespace CleverSoft\CleverSearchAutoComplete\Model\Search;
 
-use \CleverSoft\CleverSearchAutocomplete\Helper\Data as HelperData;
+use \CleverSoft\CleverSearchAutoComplete\Helper\Data as HelperData;
 use \Magento\Search\Helper\Data as SearchHelper;
-use \CleverSoft\CleverSearchAutocomplete\Model\Autocomplete\SearchDataProvider;
-use \CleverSoft\CleverSearchAutocomplete\Model\Source\AutocompleteFields;
+use \CleverSoft\CleverSearchAutoComplete\Model\Autocomplete\SearchDataProvider;
+use \CleverSoft\CleverSearchAutoComplete\Model\Source\AutocompleteFields;
 
 /**
  * Suggested model. Return suggested data used in search autocomplete
  */
-class Suggested implements \CleverSoft\CleverSearchAutocomplete\Model\SearchInterface
+class Suggested implements \CleverSoft\CleverSearchAutoComplete\Model\SearchInterface
 {
     /**
-     * @var \CleverSoft\CleverSearchAutocomplete\Helper\Data
+     * @var \CleverSoft\CleverSearchAutoComplete\Helper\Data
      */
     protected $helperData;
 
@@ -23,7 +23,7 @@ class Suggested implements \CleverSoft\CleverSearchAutocomplete\Model\SearchInte
     protected $searchHelper;
 
     /**
-     * @var \CleverSoft\CleverSearchAutocomplete\Model\Autocomplete\SearchDataProvider
+     * @var \CleverSoft\CleverSearchAutoComplete\Model\Autocomplete\SearchDataProvider
      */
     protected $searchDataProvider;
 

@@ -1,21 +1,21 @@
 <?php
 
-namespace CleverSoft\CleverSearchAutocomplete\Model\Search;
+namespace CleverSoft\CleverSearchAutoComplete\Model\Search;
 
-use \CleverSoft\CleverSearchAutocomplete\Helper\Data as HelperData;
+use \CleverSoft\CleverSearchAutoComplete\Helper\Data as HelperData;
 use \Magento\Search\Helper\Data as SearchHelper;
-use \CleverSoft\CleverSearchAutocomplete\Model\Autocomplete\SearchDataProvider;
-use \CleverSoft\CleverSearchAutocomplete\Model\Source\AutocompleteFields;
-use \CleverSoft\CleverSearchAutocomplete\Model\Source\ProductFields;
+use \CleverSoft\CleverSearchAutoComplete\Model\Autocomplete\SearchDataProvider;
+use \CleverSoft\CleverSearchAutoComplete\Model\Source\AutocompleteFields;
+use \CleverSoft\CleverSearchAutoComplete\Model\Source\ProductFields;
 use \Magento\Framework\ObjectManagerInterface as ObjectManager;
 use Magento\Framework\App\Request\Http;
 /**
  * Product model. Return suggested data used in search autocomplete
  */
-class Product implements \CleverSoft\CleverSearchAutocomplete\Model\SearchInterface
+class Product implements \CleverSoft\CleverSearchAutoComplete\Model\SearchInterface
 {
     /**
-     * @var \CleverSoft\CleverSearchAutocomplete\Helper\Data
+     * @var \CleverSoft\CleverSearchAutoComplete\Helper\Data
      */
     protected $helperData;
 
@@ -25,7 +25,7 @@ class Product implements \CleverSoft\CleverSearchAutocomplete\Model\SearchInterf
     protected $searchHelper;
 
     /**
-     * @var \CleverSoft\CleverSearchAutocomplete\Model\Autocomplete\SearchDataProvider
+     * @var \CleverSoft\CleverSearchAutoComplete\Model\Autocomplete\SearchDataProvider
      */
     protected $searchDataProvider;
 
@@ -106,8 +106,8 @@ class Product implements \CleverSoft\CleverSearchAutocomplete\Model\SearchInterf
      */
     protected function getProductData($product)
     {
-        /** @var \CleverSoft\CleverSearchAutocomplete\Block\Autocomplete\Product $product */
-        $product = $this->objectManager->create('CleverSoft\CleverSearchAutocomplete\Block\Autocomplete\ProductAgregator')
+        /** @var \CleverSoft\CleverSearchAutoComplete\Block\Autocomplete\Product $product */
+        $product = $this->objectManager->create('CleverSoft\CleverSearchAutoComplete\Block\Autocomplete\ProductAgregator')
             ->setProduct($product);
 
         $data = [

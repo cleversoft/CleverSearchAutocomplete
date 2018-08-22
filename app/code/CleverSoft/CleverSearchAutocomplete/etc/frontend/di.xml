@@ -6,11 +6,11 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="CleverSoft\CleverSearchAutocomplete\Model\SearchFactory">
+    <type name="CleverSoft\CleverSearchAutoComplete\Model\SearchFactory">
         <arguments>
             <argument name="map" xsi:type="array">
-                <item name="suggest" xsi:type="string">CleverSoft\CleverSearchAutocomplete\Model\Search\Suggested</item>
-                <item name="product" xsi:type="string">CleverSoft\CleverSearchAutocomplete\Model\Search\Product</item>
+                <item name="suggest" xsi:type="string">CleverSoft\CleverSearchAutoComplete\Model\Search\Suggested</item>
+                <item name="product" xsi:type="string">CleverSoft\CleverSearchAutoComplete\Model\Search\Product</item>
             </argument>
         </arguments>
     </type>

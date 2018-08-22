@@ -4,7 +4,7 @@
  * See LICENSE.txt for license details.
  */
 
-namespace CleverSoft\CleverSearchAutocomplete\Block;
+namespace CleverSoft\CleverSearchAutoComplete\Block;
 
 use \Magento\Catalog\Block\Product\Context as ProductContext;
 

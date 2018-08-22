@@ -4,7 +4,7 @@
  * See LICENSE.txt for license details.
  */
 
-namespace CleverSoft\CleverSearchAutocomplete\Model;
+namespace CleverSoft\CleverSearchAutoComplete\Model;
 
 use Magento\Framework\ObjectManagerInterface as ObjectManager;
 
@@ -41,7 +41,7 @@ class SearchFactory
      *
      * @param string $param
      * @param array $arguments
-     * @return \CleverSoft\CleverSearchAutocomplete\Model\SearchInterface
+     * @return \CleverSoft\CleverSearchAutoComplete\Model\SearchInterface
      * @throws \UnexpectedValueException
      */
     public function create($param, array $arguments = [])
@@ -49,12 +49,12 @@ class SearchFactory
         if (isset($this->map[$param])) {
             $instance = $this->objectManager->create($this->map[$param], $arguments);
         } else {
-            $instance = $this->objectManager->create('\CleverSoft\CleverSearchAutocomplete\Model\Search\Suggested', $arguments);
+            $instance = $this->objectManager->create('\CleverSoft\CleverSearchAutoComplete\Model\Search\Suggested', $arguments);
         }
 
-        if (!$instance instanceof \CleverSoft\CleverSearchAutocomplete\Model\SearchInterface) {
+        if (!$instance instanceof \CleverSoft\CleverSearchAutoComplete\Model\SearchInterface) {
             throw new \UnexpectedValueException(
-                'Class ' . get_class($instance) . ' should be an instance of \CleverSoft\CleverSearchAutocomplete\Model\SearchInterface'
+                'Class ' . get_class($instance) . ' should be an instance of \CleverSoft\CleverSearchAutoComplete\Model\SearchInterface'
             );
         }
         return $instance;

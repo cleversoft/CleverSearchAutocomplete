@@ -2,7 +2,7 @@
 <!--
 /**
  * @category    CleverSoft
- * @package     CleverSearchAutocomplete
+ * @package     CleverSearchAutoComplete
  * @copyright   Copyright © 2017 CleverSoft., JSC. All Rights Reserved.
  * @author 		ZooExtension.com
  * @email       magento.cleversoft@gmail.com
@@ -10,7 +10,7 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="CleverSoft_CleverSearchAutocomplete::cleversearchautocomplete" title="Clever Search Autocomplete" module="CleverSoft_Base" sortOrder="60" parent="CleverSoft_Base::cl_all" resource="CleverSoft_Base::all" />
-        <add id="CleverSoft_CleverSearchAutocomplete::config" title="Configuration" module="CleverSoft_CleverSearchAutocomplete" sortOrder="0" parent="CleverSoft_CleverSearchAutocomplete::cleversearchautocomplete" action="adminhtml/system_config/edit/section/cleversoft_searchsuite" resource="CleverSoft_Theme::config_cleversearchautocomplete" />
+        <add id="CleverSoft_CleverSearchAutoComplete::cleversearchautocomplete" title="Clever Search Autocomplete" module="CleverSoft_Base" sortOrder="60" parent="CleverSoft_Base::cl_all" resource="CleverSoft_Base::all" />
+        <add id="CleverSoft_CleverSearchAutoComplete::config" title="Configuration" module="CleverSoft_CleverSearchAutoComplete" sortOrder="0" parent="CleverSoft_CleverSearchAutoComplete::cleversearchautocomplete" action="adminhtml/system_config/edit/section/cleversoft_searchsuite" resource="CleverSoft_Theme::config_cleversearchautocomplete" />
     </menu>
 </config>

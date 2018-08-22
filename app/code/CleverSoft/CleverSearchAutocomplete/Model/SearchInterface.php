@@ -4,7 +4,7 @@
  * See LICENSE.txt for license details.
  */
 
-namespace CleverSoft\CleverSearchAutocomplete\Model;
+namespace CleverSoft\CleverSearchAutoComplete\Model;
 
 /**
  * @api

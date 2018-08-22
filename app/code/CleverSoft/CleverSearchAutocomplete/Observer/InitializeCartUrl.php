@@ -4,7 +4,7 @@
  * See LICENSE.txt for license details.
  */
 
-namespace CleverSoft\CleverSearchAutocomplete\Observer;
+namespace CleverSoft\CleverSearchAutoComplete\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 
@@ -41,9 +41,9 @@ class InitializeCartUrl implements ObserverInterface
     {
 
         $request = $observer->getEvent()->getRequest();
-        $isCleverSearchAutocomplete = $request->getParam('cleversoft_cleversearchautocomplete', false);
+        $isCleverSearchAutoComplete = $request->getParam('cleversoft_cleversearchautocomplete', false);
 
-        if ($isCleverSearchAutocomplete) {
+        if ($isCleverSearchAutoComplete) {
             $request->setParam('return_url', $this->url->getUrl('checkout/cart'));
         }
     }

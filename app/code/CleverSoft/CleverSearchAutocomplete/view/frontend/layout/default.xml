@@ -8,8 +8,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="top.search">
-        	<block class="CleverSoft\CleverSearchAutocomplete\Block\Autocomplete" name="category.tree" template="CleverSoft_CleverSearchAutocomplete::category.phtml" ifconfig="cleversoft_searchsuite/cleversearchautocomplete_main/search_category"/>
-            <block class="CleverSoft\CleverSearchAutocomplete\Block\Autocomplete" name="cleversoft-wrapper" template="CleverSoft_CleverSearchAutocomplete::autocomplete.phtml" />
+        	<block class="CleverSoft\CleverSearchAutoComplete\Block\Autocomplete" name="category.tree" template="CleverSoft_CleverSearchAutoComplete::category.phtml" ifconfig="cleversoft_searchsuite/cleversearchautocomplete_main/search_category"/>
+            <block class="CleverSoft\CleverSearchAutoComplete\Block\Autocomplete" name="cleversoft-wrapper" template="CleverSoft_CleverSearchAutoComplete::autocomplete.phtml" />
         </referenceBlock>
     </body>
 </page>

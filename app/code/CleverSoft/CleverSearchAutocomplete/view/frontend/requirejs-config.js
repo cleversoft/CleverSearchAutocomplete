@@ -3,7 +3,7 @@ var config = {
         "extjs/ext-tree": [
             "prototype"
         ],
-        "CleverSoft_CleverSearchAutocomplete/js/ext-tree-checkbox": [
+        "CleverSoft_CleverSearchAutoComplete/js/ext-tree-checkbox": [
             "extjs/ext-tree",
             "extjs/defaults"
         ]

@@ -12,7 +12,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config" title="Configuration" sortOrder="20">
-                            <resource id="CleverSoft_CleverSearchAutocomplete::config_cleversearchautocomplete" title="CleverSearchAutocomplete Section (by CleverSoft)" sortOrder="80" />
+                            <resource id="CleverSoft_CleverSearchAutoComplete::config_cleversearchautocomplete" title="CleverSearchAutoComplete Section (by CleverSoft)" sortOrder="80" />
                         </resource>
                     </resource>
                 </resource>

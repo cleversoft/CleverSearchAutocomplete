@@ -1,6 +1,6 @@
 <?php
 
-namespace CleverSoft\CleverSearchAutocomplete\Model\Autocomplete;
+namespace CleverSoft\CleverSearchAutoComplete\Model\Autocomplete;
 
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Catalog\Helper\Image;

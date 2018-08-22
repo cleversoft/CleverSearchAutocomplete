@@ -10,7 +10,7 @@
         <section id="cleversoft_searchsuite" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Clever Search Autocomplete</label>
             <tab>cleverextensions</tab>
-            <resource>CleverSoft_CleverSearchAutocomplete::config_cleversearchautocomplete</resource>
+            <resource>CleverSoft_CleverSearchAutoComplete::config_cleversearchautocomplete</resource>
             <group id="cleversearchautocomplete_main" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Autocomplete Configuration</label>
                 <field id="search_delay" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -19,7 +19,7 @@
                 </field>
                 <field id="autocomplete_fields" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label><![CDATA[Show Fields In Popup]]></label>
-                    <source_model>CleverSoft\CleverSearchAutocomplete\Model\Source\AutocompleteFields</source_model>
+                    <source_model>CleverSoft\CleverSearchAutoComplete\Model\Source\AutocompleteFields</source_model>
                 </field>
                 <field id="search_category" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label><![CDATA[Search By Category]]></label>
@@ -42,7 +42,7 @@
                 </field>
                 <field id="product_result_fields" translate="label" type="multiselect" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label><![CDATA[Product Search Result Fields]]></label>
-                    <source_model>CleverSoft\CleverSearchAutocomplete\Model\Source\ProductFields</source_model>
+                    <source_model>CleverSoft\CleverSearchAutoComplete\Model\Source\ProductFields</source_model>
                 </field>
             </group>
         </section>

@@ -6,6 +6,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'CleverSoft_CleverSearchAutocomplete',
+    'CleverSoft_CleverSearchAutoComplete',
     __DIR__
 );

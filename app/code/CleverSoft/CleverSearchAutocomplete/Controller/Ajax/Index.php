@@ -4,22 +4,22 @@
  * See LICENSE.txt for license details.
  */
 
-namespace CleverSoft\CleverSearchAutocomplete\Controller\Ajax;
+namespace CleverSoft\CleverSearchAutoComplete\Controller\Ajax;
 
-use \CleverSoft\CleverSearchAutocomplete\Helper\Data as HelperData;
+use \CleverSoft\CleverSearchAutoComplete\Helper\Data as HelperData;
 use \Magento\Framework\App\Action\Context;
 use \Magento\Framework\Controller\ResultFactory;
 use \Magento\Search\Model\QueryFactory;
 use \Magento\Store\Model\StoreManagerInterface;
-use \CleverSoft\CleverSearchAutocomplete\Model\Search as SearchModel;
+use \CleverSoft\CleverSearchAutoComplete\Model\Search as SearchModel;
 
 /**
- * CleverSearchAutocomplete ajax controller
+ * CleverSearchAutoComplete ajax controller
  */
 class Index extends \Magento\Framework\App\Action\Action
 {
     /**
-     * @var \CleverSoft\CleverSearchAutocomplete\Helper\Data
+     * @var \CleverSoft\CleverSearchAutoComplete\Helper\Data
      */
     protected $helperData;
 
@@ -34,7 +34,7 @@ class Index extends \Magento\Framework\App\Action\Action
     protected $storeManager;
 
     /**
-     * @var \CleverSoft\CleverSearchAutocomplete\Model\Search
+     * @var \CleverSoft\CleverSearchAutoComplete\Model\Search
      */
     private $searchModel;
 

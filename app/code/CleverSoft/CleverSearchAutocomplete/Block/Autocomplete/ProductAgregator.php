@@ -4,9 +4,9 @@
  * See LICENSE.txt for license details.
  */
 
-namespace CleverSoft\CleverSearchAutocomplete\Block\Autocomplete;
+namespace CleverSoft\CleverSearchAutoComplete\Block\Autocomplete;
 
-use \CleverSoft\CleverSearchAutocomplete\Block\Product as ProductBlock;
+use \CleverSoft\CleverSearchAutoComplete\Block\Product as ProductBlock;
 use \Magento\Catalog\Helper\Product as CatalogProductHelper;
 use \Magento\Catalog\Block\Product\ReviewRendererInterface;
 use \Magento\Framework\Stdlib\StringUtils;
@@ -22,7 +22,7 @@ use \Magento\Framework\View\Asset\Repository;
 class ProductAgregator extends \Magento\Framework\DataObject
 {
     /**
-     * @var \CleverSoft\CleverSearchAutocomplete\Block\Product
+     * @var \CleverSoft\CleverSearchAutoComplete\Block\Product
      */
     protected $productBlock;
 

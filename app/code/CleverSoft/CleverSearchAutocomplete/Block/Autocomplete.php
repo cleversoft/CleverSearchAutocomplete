@@ -4,7 +4,7 @@
  * See LICENSE.txt for license details.
  */
 
-namespace CleverSoft\CleverSearchAutocomplete\Block;
+namespace CleverSoft\CleverSearchAutoComplete\Block;
 
 /**
  * Autocomplete class used to paste config data
@@ -12,19 +12,19 @@ namespace CleverSoft\CleverSearchAutocomplete\Block;
 class Autocomplete extends \Magento\Framework\View\Element\Template
 {
     /**
-     * @var \CleverSoft\CleverSearchAutocomplete\Helper\Data
+     * @var \CleverSoft\CleverSearchAutoComplete\Helper\Data
      */
     protected $helperData;
 
     /**
      * Autocomplete constructor.
      *
-     * @param \CleverSoft\CleverSearchAutocomplete\Helper\Data $helperData
+     * @param \CleverSoft\CleverSearchAutoComplete\Helper\Data $helperData
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param array $data
      */
     public function __construct(
-        \CleverSoft\CleverSearchAutocomplete\Helper\Data $helperData,
+        \CleverSoft\CleverSearchAutoComplete\Helper\Data $helperData,
         \Magento\Framework\View\Element\Template\Context $context,
         array $data = []
     ) {

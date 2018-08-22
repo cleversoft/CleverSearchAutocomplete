@@ -13,7 +13,7 @@ define([
 
     return Component.extend({
         defaults: {
-            template: 'CleverSoft_CleverSearchAutocomplete/autocomplete',
+            template: 'CleverSoft_CleverSearchAutoComplete/autocomplete',
             addToCartFormSelector: '[data-role=cleversearchautocomplete-tocart-form]',
             showPopup: ko.observable(false),
             result: {

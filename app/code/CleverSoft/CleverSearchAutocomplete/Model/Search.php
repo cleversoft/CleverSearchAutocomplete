@@ -4,10 +4,10 @@
  * See LICENSE.txt for license details.
  */
 
-namespace CleverSoft\CleverSearchAutocomplete\Model;
+namespace CleverSoft\CleverSearchAutoComplete\Model;
 
-use \CleverSoft\CleverSearchAutocomplete\Helper\Data as HelperData;
-use \CleverSoft\CleverSearchAutocomplete\Model\SearchFactory;
+use \CleverSoft\CleverSearchAutoComplete\Helper\Data as HelperData;
+use \CleverSoft\CleverSearchAutoComplete\Model\SearchFactory;
 
 /**
  * Search class returns needed search data
@@ -15,18 +15,18 @@ use \CleverSoft\CleverSearchAutocomplete\Model\SearchFactory;
 class Search
 {
     /**
-     * @var \CleverSoft\CleverSearchAutocomplete\Helper\Data
+     * @var \CleverSoft\CleverSearchAutoComplete\Helper\Data
      */
     protected $helperData;
 
     /**
-     * @var \CleverSoft\CleverSearchAutocomplete\Model\SearchFactory
+     * @var \CleverSoft\CleverSearchAutoComplete\Model\SearchFactory
      */
     protected $searchFactory;
 
     /**
      * Search constructor.
-     * @param \CleverSoft\CleverSearchAutocomplete\Model\SearchFactory $searchFactory
+     * @param \CleverSoft\CleverSearchAutoComplete\Model\SearchFactory $searchFactory
      */
     public function __construct(
         HelperData $helperData,
